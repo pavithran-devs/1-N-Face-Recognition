@@ -1,0 +1,345 @@
+Starting Enrollment Service on 0.0.0.0:8000...
+INFO:     Will watch for changes in these directories: ['/home/pavithranraj/Desktop/1:N Face recognition/enrollment_service']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [11214] using WatchFiles
+INFO:     Started server process [11217]
+INFO:     Waiting for application startup.
+[32m2026-07-11 23:18:41[0m | [1mINFO    [0m | [36mapp.core.events[0m:[36m17[0m — [1mStarting Face Enrollment Service v1.0.0[0m
+[32m2026-07-11 23:18:41[0m | [1mINFO    [0m | [36mapp.recognition.pipeline[0m:[36m57[0m — [1mLoading FaceRecognitionPipeline (InsightFace buffalo_l)…[0m
+[32m2026-07-11 23:18:43[0m | [1mINFO    [0m | [36mapp.recognition.pipeline[0m:[36m71[0m — [1mPipeline ready in 2.45s.[0m
+[32m2026-07-11 23:18:43[0m | [1mINFO    [0m | [36mapp.core.events[0m:[36m31[0m — [1mStartup complete — API ready.[0m
+INFO:     Application startup complete.
+[32m2026-07-11 23:18:48[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[20818f00] → GET /api/v1/health[0m
+[32m2026-07-11 23:18:48[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[20818f00] ← 200 /api/v1/health (3.0ms)[0m
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/pavithranraj/.insightface/models/buffalo_l/1k3d68.onnx landmark_3d_68 ['None', 3, 192, 192] 0.0 1.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/pavithranraj/.insightface/models/buffalo_l/2d106det.onnx landmark_2d_106 ['None', 3, 192, 192] 0.0 1.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/pavithranraj/.insightface/models/buffalo_l/det_10g.onnx detection [1, 3, '?', '?'] 127.5 128.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/pavithranraj/.insightface/models/buffalo_l/genderage.onnx genderage ['None', 3, 96, 96] 0.0 1.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/pavithranraj/.insightface/models/buffalo_l/w600k_r50.onnx recognition ['None', 3, 112, 112] 127.5 127.5
+set det-size: (640, 640)
+INFO:     127.0.0.1:47730 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:50[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[338382a8] → POST /api/v1/face/upload[0m
+/home/pavithranraj/.enrollment_service_venv/lib/python3.14/site-packages/insightface/utils/face_align.py:23: FutureWarning: `estimate` is deprecated since version 0.26 and will be removed in version 2.2. Please use `SimilarityTransform.from_estimate` class constructor instead.
+  tform.estimate(lmk, dst)
+[32m2026-07-11 23:18:52[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[1efbe822] → GET /api/v1/health[0m
+[32m2026-07-11 23:18:52[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[7cfe2c47] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:18:52[0m | [33m[1mWARNING [0m | [36mapp.main[0m:[36m78[0m — [33m[1mAppError quality_check_failed: Multiple faces detected (2). Please submit an image with exactly one face.[0m
+[32m2026-07-11 23:18:52[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[1efbe822] ← 200 /api/v1/health (8.4ms)[0m
+INFO:     127.0.0.1:33370 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:52[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[338382a8] ← 422 /api/v1/face/upload (1992.9ms)[0m
+INFO:     127.0.0.1:33368 - "POST /api/v1/face/upload HTTP/1.1" 422 Unprocessable Content
+[32m2026-07-11 23:18:52[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[ab1d0bb8] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:18:52[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[7cfe2c47] ← 200 /api/v1/candidates/ (60.0ms)[0m
+INFO:     127.0.0.1:33376 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:52[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[ab1d0bb8] ← 200 /api/v1/candidates/ (66.4ms)[0m
+INFO:     127.0.0.1:33390 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:52[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[9a25e4aa] → GET /api/v1/health[0m
+[32m2026-07-11 23:18:52[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[9a25e4aa] ← 200 /api/v1/health (1.1ms)[0m
+INFO:     127.0.0.1:33404 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:54[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[33853da1] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:18:54[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[33853da1] ← 200 /api/v1/candidates/ (7.3ms)[0m
+INFO:     127.0.0.1:33390 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:55[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[14cc483e] → GET /api/v1/health[0m
+[32m2026-07-11 23:18:55[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[14cc483e] ← 200 /api/v1/health (1.2ms)[0m
+INFO:     127.0.0.1:33368 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:55[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[d5e68fbf] → GET /api/v1/health[0m
+[32m2026-07-11 23:18:55[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[d5e68fbf] ← 200 /api/v1/health (0.8ms)[0m
+INFO:     127.0.0.1:33420 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:56[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[d1d4bdb0] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:18:57[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[32c0ebc4] → GET /api/v1/health[0m
+[32m2026-07-11 23:18:57[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[32c0ebc4] ← 200 /api/v1/health (7.2ms)[0m
+INFO:     127.0.0.1:33434 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:57[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[d1d4bdb0] ← 201 /api/v1/face/upload (1538.0ms)[0m
+INFO:     127.0.0.1:33370 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:18:58[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[1c0136e8] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:18:58[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[1c0136e8] ← 200 /api/v1/candidates/ (5.5ms)[0m
+INFO:     127.0.0.1:33390 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:58[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[9ccefae1] → GET /api/v1/health[0m
+[32m2026-07-11 23:18:58[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[9ccefae1] ← 200 /api/v1/health (0.9ms)[0m
+INFO:     127.0.0.1:33420 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:18:59[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[977f7b71] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:00[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[e8f77f7c] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:00[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[1815dd3c] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:00[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[1815dd3c] ← 200 /api/v1/health (3.8ms)[0m
+INFO:     127.0.0.1:37368 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:00[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[977f7b71] ← 201 /api/v1/face/upload (1446.7ms)[0m
+INFO:     127.0.0.1:33390 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:00[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[e8f77f7c] ← 200 /api/v1/candidates/ (26.3ms)[0m
+INFO:     127.0.0.1:33370 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:02[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[e7e5c54a] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:03[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[3d9f046e] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:03[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[5dc124e1] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:03[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[3d9f046e] ← 200 /api/v1/health (7.5ms)[0m
+INFO:     127.0.0.1:33434 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:03[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[e7e5c54a] ← 201 /api/v1/face/upload (1582.4ms)[0m
+INFO:     127.0.0.1:33390 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:03[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[5dc124e1] ← 200 /api/v1/candidates/ (16.2ms)[0m
+INFO:     127.0.0.1:37384 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:04[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[a1e333c4] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:04[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[a1e333c4] ← 200 /api/v1/candidates/ (7.4ms)[0m
+INFO:     127.0.0.1:37394 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:05[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[84d9ed49] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:07[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[4ac0bb1e] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:07[0m | [33m[1mWARNING [0m | [36mapp.main[0m:[36m78[0m — [33m[1mAppError quality_check_failed: Multiple faces detected (2). Please submit an image with exactly one face.[0m
+[32m2026-07-11 23:19:07[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[84d9ed49] ← 422 /api/v1/face/upload (1515.7ms)[0m
+INFO:     127.0.0.1:37404 - "POST /api/v1/face/upload HTTP/1.1" 422 Unprocessable Content
+[32m2026-07-11 23:19:08[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[84be4cc6] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:08[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[599547f9] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:08[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[599547f9] ← 200 /api/v1/health (3.9ms)[0m
+INFO:     127.0.0.1:33434 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:08[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[4ac0bb1e] ← 201 /api/v1/face/upload (1864.2ms)[0m
+INFO:     127.0.0.1:37408 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:08[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[84be4cc6] ← 200 /api/v1/candidates/ (12.3ms)[0m
+INFO:     127.0.0.1:37394 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:09[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[5b3d258a] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:11[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[dc6557a7] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:11[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[5b3d258a] ← 201 /api/v1/face/upload (1787.0ms)[0m
+INFO:     127.0.0.1:47756 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:11[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[dc6557a7] ← 200 /api/v1/candidates/ (21.0ms)[0m
+INFO:     127.0.0.1:47764 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:12[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[d94a2703] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:12[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[d94a2703] ← 200 /api/v1/health (0.8ms)[0m
+INFO:     127.0.0.1:47764 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:13[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[2220697d] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:13[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[2220697d] ← 200 /api/v1/candidates/ (6.6ms)[0m
+INFO:     127.0.0.1:47776 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:14[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[365c9ecb] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:14[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[204bbdbb] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:14[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[365c9ecb] ← 200 /api/v1/health (1.6ms)[0m
+INFO:     127.0.0.1:47788 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:14[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[204bbdbb] ← 200 /api/v1/candidates/ (15.0ms)[0m
+INFO:     127.0.0.1:47802 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:15[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[e7bb2df0] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:15[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[e7bb2df0] ← 200 /api/v1/candidates/ (5.5ms)[0m
+INFO:     127.0.0.1:47776 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:15[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[64d07bf0] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:15[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[64d07bf0] ← 200 /api/v1/health (0.5ms)[0m
+INFO:     127.0.0.1:47764 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:15[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[a2193477] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:15[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[a2193477] ← 200 /api/v1/candidates/ (4.6ms)[0m
+INFO:     127.0.0.1:47802 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:15[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[bb8b3a9b] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:17[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[9c02544e] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:17[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[65b3a673] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:17[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[347b533e] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:17[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[10250117] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:17[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[65b3a673] ← 200 /api/v1/health (7.1ms)[0m
+INFO:     127.0.0.1:47788 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:17[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[bb8b3a9b] ← 201 /api/v1/face/upload (1608.4ms)[0m
+INFO:     127.0.0.1:47804 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:19[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[10250117] ← 200 /api/v1/candidates/ (1661.8ms)[0m
+INFO:     127.0.0.1:47828 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:19[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[9c02544e] ← 201 /api/v1/face/upload (1697.6ms)[0m
+INFO:     127.0.0.1:47756 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:20[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[f9fbf15f] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:20[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[f9fbf15f] ← 200 /api/v1/candidates/ (8.8ms)[0m
+INFO:     127.0.0.1:47804 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:20[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[347b533e] ← 201 /api/v1/face/upload (3393.4ms)[0m
+INFO:     127.0.0.1:47820 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:21[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[bf7c0000] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:21[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[bf7c0000] ← 200 /api/v1/health (0.9ms)[0m
+INFO:     127.0.0.1:47828 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:21[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[a127d90a] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:21[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[a127d90a] ← 200 /api/v1/candidates/ (4.7ms)[0m
+INFO:     127.0.0.1:47790 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:21[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[8dce6cda] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:21[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[8dce6cda] ← 200 /api/v1/candidates/ (4.9ms)[0m
+INFO:     127.0.0.1:47792 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:22[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[ad3b6b25] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:22[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[ad3b6b25] ← 200 /api/v1/candidates/ (5.6ms)[0m
+INFO:     127.0.0.1:47804 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:23[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[3ccb5592] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:23[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[3ccb5592] ← 200 /api/v1/health (0.5ms)[0m
+INFO:     127.0.0.1:47796 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:23[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[68b27808] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:23[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[68b27808] ← 200 /api/v1/health (0.6ms)[0m
+INFO:     127.0.0.1:47820 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:23[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[226ea1e0] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:23[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[226ea1e0] ← 200 /api/v1/candidates/ (4.6ms)[0m
+INFO:     127.0.0.1:47792 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:23[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[22e6fde2] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[f6faccee] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[6b0af7ee] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[5b6c7819] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[3ee1d35b] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[7c4610c5] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:24[0m | [33m[1mWARNING [0m | [36mapp.main[0m:[36m78[0m — [33m[1mAppError quality_check_failed: Multiple faces detected (2). Please submit an image with exactly one face.[0m
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[6b0af7ee] ← 200 /api/v1/health (2.7ms)[0m
+INFO:     127.0.0.1:47756 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[5b6c7819] ← 200 /api/v1/health (2.7ms)[0m
+INFO:     127.0.0.1:47828 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[22e6fde2] ← 422 /api/v1/face/upload (977.5ms)[0m
+INFO:     127.0.0.1:47800 - "POST /api/v1/face/upload HTTP/1.1" 422 Unprocessable Content
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[7c4610c5] ← 200 /api/v1/candidates/ (12.5ms)[0m
+INFO:     127.0.0.1:47814 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:24[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[3ee1d35b] ← 200 /api/v1/candidates/ (13.5ms)[0m
+INFO:     127.0.0.1:47810 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:26[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[2f08c1fa] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:26[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[d9d00e8c] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:26[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[736fab53] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:26[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[736fab53] ← 200 /api/v1/health (4.7ms)[0m
+INFO:     127.0.0.1:47756 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:26[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[f6faccee] ← 201 /api/v1/face/upload (1640.1ms)[0m
+INFO:     127.0.0.1:47790 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:26[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[d9d00e8c] ← 200 /api/v1/candidates/ (15.4ms)[0m
+INFO:     127.0.0.1:47796 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[3ef92bcf] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[3f7afb1b] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[1d3bccbb] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[9fb0a16e] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[09a36019] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[1033807d] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:29[0m | [33m[1mWARNING [0m | [36mapp.main[0m:[36m78[0m — [33m[1mAppError quality_check_failed: Multiple faces detected (4). Please submit an image with exactly one face.[0m
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[3ef92bcf] ← 200 /api/v1/health (3.3ms)[0m
+INFO:     127.0.0.1:47828 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[1d3bccbb] ← 200 /api/v1/health (2.8ms)[0m
+INFO:     127.0.0.1:47796 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[9fb0a16e] ← 200 /api/v1/health (2.8ms)[0m
+INFO:     127.0.0.1:47792 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[1033807d] ← 200 /api/v1/health (2.6ms)[0m
+INFO:     127.0.0.1:47804 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[2f08c1fa] ← 422 /api/v1/face/upload (3303.2ms)[0m
+INFO:     127.0.0.1:47820 - "POST /api/v1/face/upload HTTP/1.1" 422 Unprocessable Content
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[3f7afb1b] ← 200 /api/v1/candidates/ (16.5ms)[0m
+INFO:     127.0.0.1:47800 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:29[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[09a36019] ← 200 /api/v1/candidates/ (16.5ms)[0m
+INFO:     127.0.0.1:47790 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:30[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[764bbe39] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:30[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[764bbe39] ← 200 /api/v1/candidates/ (4.6ms)[0m
+INFO:     127.0.0.1:36472 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:30[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[d164d9df] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:30[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[d164d9df] ← 200 /api/v1/health (0.5ms)[0m
+INFO:     127.0.0.1:47790 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:31[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[0e1142ac] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:31[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[0e1142ac] ← 200 /api/v1/candidates/ (4.5ms)[0m
+INFO:     127.0.0.1:36472 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:31[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[e4eccdaf] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:31[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[e4eccdaf] ← 200 /api/v1/health (0.5ms)[0m
+INFO:     127.0.0.1:36488 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:31[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[9dd3fb02] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:31[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[9dd3fb02] ← 200 /api/v1/candidates/ (4.4ms)[0m
+INFO:     127.0.0.1:47804 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:31[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[5c738aa6] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:31[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[5c738aa6] ← 200 /api/v1/health (0.7ms)[0m
+INFO:     127.0.0.1:47820 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:32[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[c60ebf28] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:32[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[c60ebf28] ← 200 /api/v1/health (2.1ms)[0m
+INFO:     127.0.0.1:47800 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:32[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[55153a28] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:32[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[55153a28] ← 200 /api/v1/health (0.8ms)[0m
+INFO:     127.0.0.1:47828 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:33[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[094cb448] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:33[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[094cb448] ← 200 /api/v1/candidates/ (7.0ms)[0m
+INFO:     127.0.0.1:36488 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:33[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[a8ddba03] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:33[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[a8ddba03] ← 200 /api/v1/candidates/ (4.0ms)[0m
+INFO:     127.0.0.1:47800 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:33[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[95fd6747] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:33[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[95fd6747] ← 200 /api/v1/candidates/ (4.6ms)[0m
+INFO:     127.0.0.1:47820 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:33[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[76109a4f] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:33[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[76109a4f] ← 200 /api/v1/health (0.5ms)[0m
+INFO:     127.0.0.1:47828 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:34[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[df3f8df1] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:34[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[df3f8df1] ← 200 /api/v1/candidates/ (6.5ms)[0m
+INFO:     127.0.0.1:47804 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:34[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[538b1c2b] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:34[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[538b1c2b] ← 200 /api/v1/candidates/ (4.5ms)[0m
+INFO:     127.0.0.1:36496 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:34[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[bdf99eb8] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:34[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[bdf99eb8] ← 200 /api/v1/health (0.5ms)[0m
+INFO:     127.0.0.1:36472 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:35[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[f95140bd] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:35[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[f95140bd] ← 200 /api/v1/candidates/ (4.2ms)[0m
+INFO:     127.0.0.1:47820 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:35[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[d2faeda7] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:36[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[350c41b0] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:36[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[474fed6b] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:36[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[c32594b0] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:36[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[c32594b0] ← 200 /api/v1/health (4.8ms)[0m
+INFO:     127.0.0.1:36508 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:36[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[d2faeda7] ← 201 /api/v1/face/upload (1150.7ms)[0m
+INFO:     127.0.0.1:47800 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:36[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[474fed6b] ← 200 /api/v1/candidates/ (15.1ms)[0m
+INFO:     127.0.0.1:36488 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:36[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[350c41b0] ← 200 /api/v1/candidates/ (21.0ms)[0m
+INFO:     127.0.0.1:36472 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:36[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[d5b69216] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:36[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[d5b69216] ← 200 /api/v1/candidates/ (6.7ms)[0m
+INFO:     127.0.0.1:36512 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:38[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[3e52de32] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:38[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[3e52de32] ← 200 /api/v1/health (1.0ms)[0m
+INFO:     127.0.0.1:36526 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:38[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[addc6649] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:38[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[addc6649] ← 200 /api/v1/candidates/ (5.8ms)[0m
+INFO:     127.0.0.1:47828 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:39[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[0279e738] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:39[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[0279e738] ← 200 /api/v1/candidates/ (18.8ms)[0m
+INFO:     127.0.0.1:36512 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:40[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[eacf7c4e] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[b49ae7cd] → POST /api/v1/face/upload[0m
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[7720a49a] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[8435c203] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[bf306ebd] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[467bd12a] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[7720a49a] ← 200 /api/v1/health (12.9ms)[0m
+INFO:     127.0.0.1:47800 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[bf306ebd] ← 200 /api/v1/health (13.0ms)[0m
+INFO:     127.0.0.1:47828 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[467bd12a] ← 200 /api/v1/health (13.3ms)[0m
+INFO:     127.0.0.1:47820 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[eacf7c4e] ← 201 /api/v1/face/upload (1260.7ms)[0m
+INFO:     127.0.0.1:53576 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:41[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[8435c203] ← 200 /api/v1/candidates/ (36.6ms)[0m
+INFO:     127.0.0.1:36526 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[839063cd] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[7dad16d8] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[65abed0a] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[839063cd] ← 200 /api/v1/health (3.4ms)[0m
+INFO:     127.0.0.1:36512 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[7dad16d8] ← 200 /api/v1/health (3.5ms)[0m
+INFO:     127.0.0.1:53576 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[b49ae7cd] ← 201 /api/v1/face/upload (1890.0ms)[0m
+INFO:     127.0.0.1:36488 - "POST /api/v1/face/upload HTTP/1.1" 201 Created
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[65abed0a] ← 200 /api/v1/candidates/ (9.2ms)[0m
+INFO:     127.0.0.1:53584 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[586a87f1] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[586a87f1] ← 200 /api/v1/health (3.4ms)[0m
+INFO:     127.0.0.1:36526 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[50bdba05] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:43[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[50bdba05] ← 200 /api/v1/candidates/ (5.1ms)[0m
+INFO:     127.0.0.1:53588 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:44[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[eba0efdf] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:44[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[eba0efdf] ← 200 /api/v1/health (0.5ms)[0m
+INFO:     127.0.0.1:53584 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:44[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[35ae4a1b] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:44[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[35ae4a1b] ← 200 /api/v1/candidates/ (4.2ms)[0m
+INFO:     127.0.0.1:47828 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:45[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[09e091c1] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:45[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[09e091c1] ← 200 /api/v1/candidates/ (16.0ms)[0m
+INFO:     127.0.0.1:53584 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:45[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[a445b068] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:45[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[a445b068] ← 200 /api/v1/candidates/ (4.5ms)[0m
+INFO:     127.0.0.1:53576 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:45[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[d6e20264] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:45[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[d6e20264] ← 200 /api/v1/health (0.5ms)[0m
+INFO:     127.0.0.1:36526 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:45[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[e0c45bb5] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:45[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[e0c45bb5] ← 200 /api/v1/candidates/ (4.2ms)[0m
+INFO:     127.0.0.1:36512 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:46[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[f6e4f839] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:46[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[f6e4f839] ← 200 /api/v1/health (0.6ms)[0m
+INFO:     127.0.0.1:36488 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:47[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[336f6c90] → GET /api/v1/health[0m
+[32m2026-07-11 23:19:47[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[336f6c90] ← 200 /api/v1/health (1.2ms)[0m
+INFO:     127.0.0.1:53600 - "GET /api/v1/health HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:47[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[bd8ab984] → GET /api/v1/candidates/[0m
+[32m2026-07-11 23:19:47[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m32[0m — [1m[bd8ab984] ← 200 /api/v1/candidates/ (6.5ms)[0m
+INFO:     127.0.0.1:53606 - "GET /api/v1/candidates/?limit=20 HTTP/1.1" 200 OK
+[32m2026-07-11 23:19:48[0m | [1mINFO    [0m | [36mapp.middleware.logging[0m:[36m22[0m — [1m[6ef01b0e] → POST /api/v1/face/upload[0m
+enrollment_service/scripts/run_server.sh: line 18: 11214 Killed                     uvicorn app.main:app --host "${HOST:-0.0.0.0}" --port "${PORT:-8000}" --reload

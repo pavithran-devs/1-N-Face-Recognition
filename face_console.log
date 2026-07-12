@@ -1,0 +1,499 @@
+Starting Face Identification Service on 0.0.0.0:8001...
+INFO:     Will watch for changes in these directories: ['/home/pavithranraj/Desktop/1:N Face recognition/face_identification']
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+INFO:     Started reloader process [11215] using WatchFiles
+2026-07-11 23:18:40.965 | INFO     | app.core.logging:setup_logging:84 - Logging configured successfully. Level: INFO
+2026-07-11 23:18:40.978 | INFO     | logging:callHandlers:1737 - Started server process [11219]
+2026-07-11 23:18:40.979 | INFO     | logging:callHandlers:1737 - Waiting for application startup.
+2026-07-11 23:18:40.979 | INFO     | app.core.events:lifespan:17 - Starting Face Identification Service v1.0.0
+2026-07-11 23:18:40.980 | INFO     | app.recognition.pipeline:load:56 - Loading FaceRecognitionPipeline components...
+2026-07-11 23:18:41.086 | INFO     | app.recognition.detector.scrfd:load:26 - Loading InsightFace model pack for detection: buffalo_l
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+model ignore: /home/pavithranraj/.insightface/models/buffalo_l/1k3d68.onnx landmark_3d_68
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+model ignore: /home/pavithranraj/.insightface/models/buffalo_l/2d106det.onnx landmark_2d_106
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/pavithranraj/.insightface/models/buffalo_l/det_10g.onnx detection [1, 3, '?', '?'] 127.5 128.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+model ignore: /home/pavithranraj/.insightface/models/buffalo_l/genderage.onnx genderage
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+model ignore: /home/pavithranraj/.insightface/models/buffalo_l/w600k_r50.onnx recognition
+set det-size: (640, 640)
+2026-07-11 23:18:42.520 | INFO     | app.recognition.detector.scrfd:load:38 - SCRFD detector loaded successfully.
+2026-07-11 23:18:42.521 | INFO     | app.recognition.embedding.arcface:load:26 - Loading ArcFace embedding model from pack: buffalo_l
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+model ignore: /home/pavithranraj/.insightface/models/buffalo_l/1k3d68.onnx landmark_3d_68
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+model ignore: /home/pavithranraj/.insightface/models/buffalo_l/2d106det.onnx landmark_2d_106
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/pavithranraj/.insightface/models/buffalo_l/det_10g.onnx detection [1, 3, '?', '?'] 127.5 128.0
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+model ignore: /home/pavithranraj/.insightface/models/buffalo_l/genderage.onnx genderage
+Applied providers: ['CPUExecutionProvider'], with options: {'CPUExecutionProvider': {}}
+find model: /home/pavithranraj/.insightface/models/buffalo_l/w600k_r50.onnx recognition ['None', 3, 112, 112] 127.5 127.5
+set det-size: [(128, 128), (640, 640)]
+2026-07-11 23:18:44.450 | INFO     | app.recognition.embedding.arcface:load:40 - ArcFace embedder loaded successfully.
+2026-07-11 23:18:44.450 | INFO     | app.recognition.pipeline:load:63 - Pipeline ready in 3.47s.
+2026-07-11 23:18:44.451 | INFO     | app.faiss.loader:load_index:49 - Loaded FAISS index binary from: faiss_index.bin
+2026-07-11 23:18:44.451 | INFO     | app.faiss.loader:load_index:54 - Loaded FAISS index metadata containing 362 items.
+2026-07-11 23:18:44.451 | INFO     | app.faiss.manager:load_from_disk:59 - Successfully loaded FAISS index from disk. Size: 362
+2026-07-11 23:18:44.451 | INFO     | app.core.events:lifespan:47 - Startup complete — Face Identification API ready.
+2026-07-11 23:18:44.451 | INFO     | logging:callHandlers:1737 - Application startup complete.
+2026-07-11 23:18:48.331 | INFO     | app.middleware.logging:dispatch:23 - [ec21e0a3] → GET /health
+2026-07-11 23:18:48.367 | INFO     | app.middleware.logging:dispatch:33 - [ec21e0a3] ← 200 /health (36.0ms)
+2026-07-11 23:18:48.367 | INFO     | logging:callHandlers:1737 - 127.0.0.1:44892 - "GET /health HTTP/1.1" 200
+2026-07-11 23:18:48.660 | INFO     | app.middleware.logging:dispatch:23 - [85742d6f] → POST /identify
+2026-07-11 23:18:48.664 | INFO     | app.middleware.logging:dispatch:23 - [06506dcf] → POST /identify
+/home/pavithranraj/.venvs/face_identification/lib/python3.14/site-packages/insightface/utils/face_align.py:23: FutureWarning: `estimate` is deprecated since version 0.26 and will be removed in version 2.2. Please use `SimilarityTransform.from_estimate` class constructor instead.
+  tform.estimate(lmk, dst)
+2026-07-11 23:18:49.075 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 2d7c4084-ed99-438c-8532-ec2ab45eaa4b similarity: 0.1556 threshold: 0.6500
+2026-07-11 23:18:49.366 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 6d618bc8-ac1e-4101-acbc-e11ba7fe2efb similarity: 0.2088 threshold: 0.6500
+2026-07-11 23:18:49.366 | INFO     | app.middleware.logging:dispatch:33 - [06506dcf] ← 200 /identify (702.9ms)
+2026-07-11 23:18:49.367 | INFO     | logging:callHandlers:1737 - 127.0.0.1:44898 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:49.367 | INFO     | app.middleware.logging:dispatch:33 - [85742d6f] ← 200 /identify (707.7ms)
+2026-07-11 23:18:49.368 | INFO     | logging:callHandlers:1737 - 127.0.0.1:44904 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:49.653 | INFO     | app.middleware.logging:dispatch:23 - [23d8a312] → POST /identify
+2026-07-11 23:18:49.653 | INFO     | app.middleware.logging:dispatch:23 - [aaebefa6] → POST /identify
+2026-07-11 23:18:49.954 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 418ef205-fb63-4ec9-a4de-da7cf725bc7a similarity: 0.1774 threshold: 0.6500
+2026-07-11 23:18:50.277 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 7a73a285-4851-4f15-b024-0e0d6d96ef10 similarity: 0.2103 threshold: 0.6500
+2026-07-11 23:18:50.278 | INFO     | app.middleware.logging:dispatch:33 - [23d8a312] ← 200 /identify (625.3ms)
+2026-07-11 23:18:50.278 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40454 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:50.279 | INFO     | app.middleware.logging:dispatch:33 - [aaebefa6] ← 200 /identify (625.5ms)
+2026-07-11 23:18:50.279 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40462 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:50.653 | INFO     | app.middleware.logging:dispatch:23 - [90406159] → POST /identify
+2026-07-11 23:18:51.258 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 272db182-6c3c-4942-b974-d33ca5bec2e5 similarity: 0.2451 threshold: 0.6500
+2026-07-11 23:18:51.258 | INFO     | app.middleware.logging:dispatch:33 - [90406159] ← 200 /identify (605.4ms)
+2026-07-11 23:18:51.259 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40476 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:51.446 | INFO     | app.middleware.logging:dispatch:23 - [ca48ad72] → POST /identify
+2026-07-11 23:18:51.868 | INFO     | app.middleware.logging:dispatch:23 - [4749e7fd] → POST /identify
+2026-07-11 23:18:51.869 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (4). Only single candidates allowed.
+2026-07-11 23:18:51.870 | INFO     | app.middleware.logging:dispatch:23 - [b1fa7e61] → POST /identify
+2026-07-11 23:18:51.871 | INFO     | app.middleware.logging:dispatch:33 - [ca48ad72] ← 422 /identify (424.5ms)
+2026-07-11 23:18:51.872 | INFO     | logging:callHandlers:1737 - 127.0.0.1:44898 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:18:52.811 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 9f7c2c85-e59e-4bf6-99a8-cbca49315c0d similarity: 0.2211 threshold: 0.6500
+2026-07-11 23:18:52.812 | INFO     | app.middleware.logging:dispatch:23 - [1855584a] → POST /identify
+2026-07-11 23:18:52.813 | INFO     | app.middleware.logging:dispatch:23 - [d066bc3d] → GET /health
+2026-07-11 23:18:52.813 | INFO     | app.middleware.logging:dispatch:23 - [8cf36ad5] → POST /identify
+2026-07-11 23:18:52.814 | INFO     | app.middleware.logging:dispatch:33 - [4749e7fd] ← 200 /identify (945.8ms)
+2026-07-11 23:18:52.814 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40490 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:53.482 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 9bc89420-ee44-43f2-901d-8a499b0e8fd1 similarity: 0.1914 threshold: 0.6500
+2026-07-11 23:18:53.483 | INFO     | app.middleware.logging:dispatch:23 - [d90f9b99] → GET /health
+2026-07-11 23:18:53.483 | INFO     | app.middleware.logging:dispatch:23 - [a5265780] → POST /identify
+2026-07-11 23:18:53.484 | INFO     | app.middleware.logging:dispatch:33 - [b1fa7e61] ← 200 /identify (1614.7ms)
+2026-07-11 23:18:53.485 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40494 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:54.632 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 5bfda6b9-9ee5-4138-86cc-c95ecade2df5 similarity: 0.1505 threshold: 0.6500
+2026-07-11 23:18:54.632 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:18:54.633 | INFO     | app.middleware.logging:dispatch:33 - [d066bc3d] ← 200 /health (1820.0ms)
+2026-07-11 23:18:54.633 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40454 - "GET /health HTTP/1.1" 200
+2026-07-11 23:18:55.257 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 7b65f67c-4772-4657-b750-3aa4dabd89e9 similarity: 0.2443 threshold: 0.6500
+2026-07-11 23:18:55.258 | INFO     | app.middleware.logging:dispatch:33 - [8cf36ad5] ← 200 /identify (2444.7ms)
+2026-07-11 23:18:55.258 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40504 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:55.259 | INFO     | app.middleware.logging:dispatch:23 - [1b8429fd] → GET /health
+2026-07-11 23:18:55.260 | INFO     | app.middleware.logging:dispatch:33 - [1855584a] ← 422 /identify (2447.8ms)
+2026-07-11 23:18:55.260 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40462 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:18:55.261 | INFO     | app.middleware.logging:dispatch:23 - [e536087c] → POST /identify
+2026-07-11 23:18:55.275 | INFO     | app.middleware.logging:dispatch:33 - [a5265780] ← 200 /identify (1791.7ms)
+2026-07-11 23:18:55.275 | INFO     | logging:callHandlers:1737 - 127.0.0.1:44898 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:55.280 | INFO     | app.middleware.logging:dispatch:33 - [d90f9b99] ← 200 /health (1797.2ms)
+2026-07-11 23:18:55.280 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40476 - "GET /health HTTP/1.1" 200
+2026-07-11 23:18:55.408 | INFO     | app.middleware.logging:dispatch:33 - [1b8429fd] ← 200 /health (148.9ms)
+2026-07-11 23:18:55.408 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40518 - "GET /health HTTP/1.1" 200
+2026-07-11 23:18:55.410 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Pose angle exceeds limits: yaw=-52.2°, pitch=-14.7°, roll=-6.6° (max allowed 35.0°). Please look directly at the camera.
+2026-07-11 23:18:55.410 | INFO     | app.middleware.logging:dispatch:33 - [e536087c] ← 422 /identify (149.8ms)
+2026-07-11 23:18:55.411 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40522 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:18:55.490 | INFO     | app.middleware.logging:dispatch:23 - [47b8b4cf] → GET /health
+2026-07-11 23:18:55.492 | INFO     | app.middleware.logging:dispatch:33 - [47b8b4cf] ← 200 /health (1.7ms)
+2026-07-11 23:18:55.492 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40494 - "GET /health HTTP/1.1" 200
+2026-07-11 23:18:55.860 | INFO     | app.middleware.logging:dispatch:23 - [3d292041] → POST /identify
+2026-07-11 23:18:55.998 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:18:55.999 | INFO     | app.middleware.logging:dispatch:33 - [3d292041] ← 422 /identify (138.9ms)
+2026-07-11 23:18:55.999 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40490 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:18:56.013 | INFO     | app.middleware.logging:dispatch:23 - [d4eea67e] → POST /identify
+2026-07-11 23:18:56.385 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 4b8bba86-aaae-4d17-b6e0-c59d0f0d2d41 similarity: 0.1389 threshold: 0.6500
+2026-07-11 23:18:56.386 | INFO     | app.middleware.logging:dispatch:33 - [d4eea67e] ← 200 /identify (372.4ms)
+2026-07-11 23:18:56.386 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40526 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:56.401 | INFO     | app.middleware.logging:dispatch:23 - [0a734a0a] → POST /identify
+2026-07-11 23:18:57.080 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: ca8594de-3545-4aa0-85e8-50e2d1a2f409 similarity: 0.2015 threshold: 0.6500
+2026-07-11 23:18:57.080 | INFO     | app.middleware.logging:dispatch:33 - [0a734a0a] ← 200 /identify (679.6ms)
+2026-07-11 23:18:57.080 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40462 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:57.143 | INFO     | app.middleware.logging:dispatch:23 - [47fcb3fb] → POST /identify
+2026-07-11 23:18:58.314 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: f179c780-037a-4d06-917b-67c8d7bddacc similarity: 0.1872 threshold: 0.6500
+2026-07-11 23:18:58.315 | INFO     | app.middleware.logging:dispatch:23 - [66f97fd3] → POST /identify
+2026-07-11 23:18:58.316 | INFO     | app.middleware.logging:dispatch:23 - [edb87bf3] → POST /identify
+2026-07-11 23:18:58.316 | INFO     | app.middleware.logging:dispatch:23 - [fac2f232] → POST /identify
+2026-07-11 23:18:58.316 | INFO     | app.middleware.logging:dispatch:23 - [784307d6] → GET /health
+2026-07-11 23:18:58.316 | INFO     | app.middleware.logging:dispatch:23 - [22d2a0de] → GET /health
+2026-07-11 23:18:58.318 | INFO     | app.middleware.logging:dispatch:33 - [47fcb3fb] ← 200 /identify (1174.7ms)
+2026-07-11 23:18:58.318 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40504 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:18:58.719 | INFO     | app.middleware.logging:dispatch:23 - [50e29bbf] → POST /identify
+2026-07-11 23:18:59.716 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 7c7d9a47-137c-4e07-a60b-cc6ee2df968d similarity: 0.1670 threshold: 0.6500
+2026-07-11 23:18:59.716 | INFO     | app.middleware.logging:dispatch:33 - [784307d6] ← 200 /health (1400.3ms)
+2026-07-11 23:18:59.716 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40490 - "GET /health HTTP/1.1" 200
+2026-07-11 23:18:59.717 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (4). Only single candidates allowed.
+2026-07-11 23:19:00.492 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 36bd3565-65e5-42fb-b54c-e35421e1770a similarity: 0.1855 threshold: 0.6500
+2026-07-11 23:19:00.493 | INFO     | app.middleware.logging:dispatch:23 - [4095d7b7] → POST /identify
+2026-07-11 23:19:00.494 | INFO     | app.middleware.logging:dispatch:33 - [66f97fd3] ← 200 /identify (2178.7ms)
+2026-07-11 23:19:00.494 | INFO     | logging:callHandlers:1737 - 127.0.0.1:44898 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:00.494 | INFO     | app.middleware.logging:dispatch:33 - [22d2a0de] ← 200 /health (2178.5ms)
+2026-07-11 23:19:00.495 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40494 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:00.496 | INFO     | app.middleware.logging:dispatch:33 - [fac2f232] ← 422 /identify (2179.9ms)
+2026-07-11 23:19:00.496 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40522 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:00.496 | INFO     | app.middleware.logging:dispatch:33 - [edb87bf3] ← 200 /identify (2180.8ms)
+2026-07-11 23:19:00.497 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40476 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:01.660 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 107908bc-cac7-420c-b02f-a25533a4b395 similarity: 0.2306 threshold: 0.6500
+2026-07-11 23:19:01.660 | INFO     | app.middleware.logging:dispatch:23 - [4974bf03] → GET /health
+2026-07-11 23:19:01.661 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:01.662 | INFO     | app.middleware.logging:dispatch:33 - [4095d7b7] ← 200 /identify (1168.6ms)
+2026-07-11 23:19:01.662 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40462 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:01.662 | INFO     | app.middleware.logging:dispatch:33 - [50e29bbf] ← 422 /identify (2943.0ms)
+2026-07-11 23:19:01.662 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40518 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:01.665 | INFO     | app.middleware.logging:dispatch:33 - [4974bf03] ← 200 /health (4.6ms)
+2026-07-11 23:19:01.666 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40504 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:01.990 | INFO     | app.middleware.logging:dispatch:23 - [17bbc92e] → POST /identify
+2026-07-11 23:19:02.924 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: a2f92319-9d29-469e-bd27-5ae4818f8162 similarity: 0.1768 threshold: 0.6500
+2026-07-11 23:19:02.925 | INFO     | app.middleware.logging:dispatch:23 - [a536405e] → POST /identify
+2026-07-11 23:19:02.925 | INFO     | app.middleware.logging:dispatch:23 - [8ff8b5bf] → POST /identify
+2026-07-11 23:19:02.925 | INFO     | app.middleware.logging:dispatch:23 - [d4d99fde] → POST /identify
+2026-07-11 23:19:02.926 | INFO     | app.middleware.logging:dispatch:33 - [17bbc92e] ← 200 /identify (936.0ms)
+2026-07-11 23:19:02.926 | INFO     | logging:callHandlers:1737 - 127.0.0.1:44898 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:03.768 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 2cc02064-f75d-4138-917f-2ba2033e47e2 similarity: 0.1868 threshold: 0.6500
+2026-07-11 23:19:04.088 | INFO     | app.middleware.logging:dispatch:23 - [bed3bb53] → POST /identify
+2026-07-11 23:19:04.089 | INFO     | app.middleware.logging:dispatch:23 - [177bd4d8] → POST /identify
+2026-07-11 23:19:04.089 | INFO     | app.middleware.logging:dispatch:23 - [f8180471] → GET /health
+2026-07-11 23:19:04.090 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (3). Only single candidates allowed.
+2026-07-11 23:19:04.090 | INFO     | app.middleware.logging:dispatch:33 - [a536405e] ← 200 /identify (1165.9ms)
+2026-07-11 23:19:04.091 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40476 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:04.396 | INFO     | app.middleware.logging:dispatch:33 - [8ff8b5bf] ← 422 /identify (1471.0ms)
+2026-07-11 23:19:04.397 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40504 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:04.397 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Pose angle exceeds limits: yaw=12.3°, pitch=41.5°, roll=-3.1° (max allowed 35.0°). Please look directly at the camera.
+2026-07-11 23:19:04.398 | INFO     | app.middleware.logging:dispatch:33 - [d4d99fde] ← 422 /identify (1472.7ms)
+2026-07-11 23:19:04.398 | INFO     | logging:callHandlers:1737 - 127.0.0.1:34066 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:05.190 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: d8bd3156-8f9c-4e72-945c-495f213967d4 similarity: 0.1631 threshold: 0.6500
+2026-07-11 23:19:05.829 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: f179c780-037a-4d06-917b-67c8d7bddacc similarity: 0.6194 threshold: 0.6500
+2026-07-11 23:19:05.831 | INFO     | app.middleware.logging:dispatch:23 - [3fabcfc1] → POST /identify
+2026-07-11 23:19:05.832 | INFO     | app.middleware.logging:dispatch:33 - [177bd4d8] ← 200 /identify (1742.9ms)
+2026-07-11 23:19:05.832 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40494 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:05.832 | INFO     | app.middleware.logging:dispatch:33 - [bed3bb53] ← 200 /identify (1744.0ms)
+2026-07-11 23:19:05.832 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40522 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:05.833 | INFO     | app.middleware.logging:dispatch:33 - [f8180471] ← 200 /health (1743.8ms)
+2026-07-11 23:19:05.833 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40490 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:06.601 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: dbc6e84b-1b7a-40dd-83f7-3b2a6b6e2ed1 similarity: 0.2138 threshold: 0.6500
+2026-07-11 23:19:06.602 | INFO     | app.middleware.logging:dispatch:23 - [4ece1221] → POST /identify
+2026-07-11 23:19:06.602 | INFO     | app.middleware.logging:dispatch:23 - [7381344d] → POST /identify
+2026-07-11 23:19:06.602 | INFO     | app.middleware.logging:dispatch:23 - [6cb56486] → POST /identify
+2026-07-11 23:19:06.603 | INFO     | app.middleware.logging:dispatch:33 - [3fabcfc1] ← 200 /identify (772.5ms)
+2026-07-11 23:19:06.607 | INFO     | logging:callHandlers:1737 - 127.0.0.1:34080 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:07.170 | INFO     | app.middleware.logging:dispatch:23 - [609b5fe9] → POST /identify
+2026-07-11 23:19:07.171 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:07.650 | INFO     | app.middleware.logging:dispatch:33 - [6cb56486] ← 422 /identify (1047.4ms)
+2026-07-11 23:19:07.650 | INFO     | logging:callHandlers:1737 - 127.0.0.1:34066 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:07.651 | INFO     | app.middleware.logging:dispatch:23 - [9a17faf1] → POST /identify
+2026-07-11 23:19:07.652 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Pose angle exceeds limits: yaw=-38.9°, pitch=-13.0°, roll=2.7° (max allowed 35.0°). Please look directly at the camera.
+2026-07-11 23:19:07.653 | INFO     | app.middleware.logging:dispatch:33 - [4ece1221] ← 422 /identify (1051.2ms)
+2026-07-11 23:19:07.653 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40462 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:08.100 | INFO     | app.middleware.logging:dispatch:23 - [8f3c7228] → POST /identify
+2026-07-11 23:19:08.100 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:08.101 | INFO     | app.middleware.logging:dispatch:33 - [7381344d] ← 422 /identify (1498.8ms)
+2026-07-11 23:19:08.101 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40504 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:09.028 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 24d1a6e9-9148-45a4-9340-84e15a6d50fd similarity: 0.1881 threshold: 0.6500
+2026-07-11 23:19:09.029 | INFO     | app.middleware.logging:dispatch:23 - [c380e9da] → POST /identify
+2026-07-11 23:19:09.029 | INFO     | app.middleware.logging:dispatch:23 - [0c889716] → GET /health
+2026-07-11 23:19:09.031 | INFO     | app.middleware.logging:dispatch:33 - [609b5fe9] ← 200 /identify (1861.3ms)
+2026-07-11 23:19:09.031 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40476 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:09.882 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: e6329066-edca-4a9e-91d8-66d7817fef3e similarity: 0.1556 threshold: 0.6500
+2026-07-11 23:19:10.270 | INFO     | app.middleware.logging:dispatch:23 - [5109c48a] → POST /identify
+2026-07-11 23:19:10.270 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:10.271 | INFO     | app.middleware.logging:dispatch:33 - [9a17faf1] ← 200 /identify (2620.3ms)
+2026-07-11 23:19:10.271 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40494 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:10.272 | INFO     | app.middleware.logging:dispatch:33 - [8f3c7228] ← 422 /identify (2172.4ms)
+2026-07-11 23:19:10.272 | INFO     | logging:callHandlers:1737 - 127.0.0.1:44898 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:11.465 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 37ccab58-c933-4b1b-831e-cdcf07bd42ee similarity: 0.2248 threshold: 0.6500
+2026-07-11 23:19:11.466 | INFO     | app.middleware.logging:dispatch:23 - [7d080ca2] → POST /identify
+2026-07-11 23:19:11.467 | INFO     | app.middleware.logging:dispatch:23 - [ccd2484b] → POST /identify
+2026-07-11 23:19:11.469 | INFO     | app.middleware.logging:dispatch:23 - [f3019df6] → POST /identify
+2026-07-11 23:19:11.470 | INFO     | app.middleware.logging:dispatch:33 - [c380e9da] ← 200 /identify (2441.3ms)
+2026-07-11 23:19:11.471 | INFO     | logging:callHandlers:1737 - 127.0.0.1:34080 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:12.579 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: a65565b5-79db-457c-8ed2-144fe03a10df similarity: 0.3280 threshold: 0.6500
+2026-07-11 23:19:12.581 | INFO     | app.middleware.logging:dispatch:33 - [0c889716] ← 200 /health (3551.1ms)
+2026-07-11 23:19:12.581 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40490 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:12.581 | INFO     | app.middleware.logging:dispatch:23 - [e9919994] → POST /identify
+2026-07-11 23:19:12.583 | INFO     | app.middleware.logging:dispatch:33 - [5109c48a] ← 200 /identify (2313.2ms)
+2026-07-11 23:19:12.583 | INFO     | logging:callHandlers:1737 - 127.0.0.1:34066 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:13.825 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 0f492bbe-a7d3-4725-9919-cab7aba5efbb similarity: 0.1936 threshold: 0.6500
+2026-07-11 23:19:13.826 | INFO     | app.middleware.logging:dispatch:23 - [f6a04fdd] → GET /health
+2026-07-11 23:19:13.826 | INFO     | app.middleware.logging:dispatch:23 - [d53bbb77] → POST /identify
+2026-07-11 23:19:13.827 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Image too blurry (Laplacian variance=47.5, min=50.0).
+2026-07-11 23:19:13.827 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:13.828 | INFO     | app.middleware.logging:dispatch:33 - [f3019df6] ← 200 /identify (2359.9ms)
+2026-07-11 23:19:13.829 | INFO     | logging:callHandlers:1737 - 127.0.0.1:41814 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:14.023 | INFO     | app.middleware.logging:dispatch:33 - [ccd2484b] ← 422 /identify (2556.1ms)
+2026-07-11 23:19:14.024 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40462 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:14.024 | INFO     | app.middleware.logging:dispatch:33 - [7d080ca2] ← 422 /identify (2558.2ms)
+2026-07-11 23:19:14.025 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40522 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:14.026 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:14.029 | INFO     | app.middleware.logging:dispatch:33 - [e9919994] ← 422 /identify (1447.5ms)
+2026-07-11 23:19:14.029 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40476 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:14.033 | INFO     | app.middleware.logging:dispatch:33 - [f6a04fdd] ← 200 /health (207.0ms)
+2026-07-11 23:19:14.033 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40494 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:14.413 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 184cf63d-6e7d-4e04-8f4f-7d5f54c64d14 similarity: 0.2009 threshold: 0.6500
+2026-07-11 23:19:14.414 | INFO     | app.middleware.logging:dispatch:33 - [d53bbb77] ← 200 /identify (587.8ms)
+2026-07-11 23:19:14.414 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40504 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:14.557 | INFO     | app.middleware.logging:dispatch:23 - [c9375ba5] → POST /identify
+2026-07-11 23:19:14.723 | INFO     | app.middleware.logging:dispatch:23 - [fcb83708] → GET /health
+2026-07-11 23:19:14.723 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:14.724 | INFO     | app.middleware.logging:dispatch:33 - [c9375ba5] ← 422 /identify (167.7ms)
+2026-07-11 23:19:14.725 | INFO     | logging:callHandlers:1737 - 127.0.0.1:34066 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:14.728 | INFO     | app.middleware.logging:dispatch:33 - [fcb83708] ← 200 /health (5.1ms)
+2026-07-11 23:19:14.728 | INFO     | logging:callHandlers:1737 - 127.0.0.1:34080 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:15.615 | INFO     | app.middleware.logging:dispatch:23 - [59d33739] → GET /health
+2026-07-11 23:19:15.616 | INFO     | app.middleware.logging:dispatch:33 - [59d33739] ← 200 /health (1.8ms)
+2026-07-11 23:19:15.617 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40494 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:15.634 | INFO     | app.middleware.logging:dispatch:23 - [7eed9f22] → POST /identify
+2026-07-11 23:19:15.717 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:15.718 | INFO     | app.middleware.logging:dispatch:33 - [7eed9f22] ← 422 /identify (84.1ms)
+2026-07-11 23:19:15.718 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40476 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:16.131 | INFO     | app.middleware.logging:dispatch:23 - [6b630e91] → POST /identify
+2026-07-11 23:19:17.224 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: c0f99278-d72b-4b84-ba54-dd7a5faf3803 similarity: 1.0000 threshold: 0.6500
+2026-07-11 23:19:17.226 | INFO     | app.middleware.logging:dispatch:23 - [5e43f01c] → POST /identify
+2026-07-11 23:19:17.227 | INFO     | app.middleware.logging:dispatch:23 - [98db247f] → POST /identify
+2026-07-11 23:19:18.255 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 9660b994-bcf3-400f-8540-a3fba969219b similarity: 0.2418 threshold: 0.6500
+2026-07-11 23:19:18.258 | INFO     | app.middleware.logging:dispatch:23 - [ec91a42f] → GET /health
+2026-07-11 23:19:18.259 | INFO     | app.middleware.logging:dispatch:23 - [1e0965fe] → POST /identify
+2026-07-11 23:19:18.259 | INFO     | app.middleware.logging:dispatch:23 - [58c65892] → POST /identify
+2026-07-11 23:19:18.261 | INFO     | app.middleware.logging:dispatch:33 - [5e43f01c] ← 200 /identify (1035.5ms)
+2026-07-11 23:19:18.262 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40522 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:19.081 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 98cd5da6-d8de-4a63-ab90-22a036fc7103 similarity: 0.2218 threshold: 0.6500
+2026-07-11 23:19:19.083 | INFO     | app.middleware.logging:dispatch:33 - [98db247f] ← 200 /identify (1856.5ms)
+2026-07-11 23:19:19.084 | INFO     | logging:callHandlers:1737 - 127.0.0.1:41816 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:19.084 | INFO     | app.api.endpoints.identify:fetch_candidate_details:141 - Matched candidate ID: Chakib_Khelil Name: Chakib Khelil Similarity: 1.0000 Rank: 1 Latency: 2948.8ms
+2026-07-11 23:19:19.087 | INFO     | app.middleware.logging:dispatch:33 - [6b630e91] ← 200 /identify (2955.8ms)
+2026-07-11 23:19:19.088 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40462 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:19.089 | INFO     | app.middleware.logging:dispatch:33 - [ec91a42f] ← 200 /health (830.4ms)
+2026-07-11 23:19:19.089 | INFO     | logging:callHandlers:1737 - 127.0.0.1:34080 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:20.079 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: d2e8be70-a494-412c-a026-8d8b114b95f2 similarity: 0.2813 threshold: 0.6500
+2026-07-11 23:19:21.010 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 68bd7d98-83b1-4f8d-9bfb-deb2e8dfabdb similarity: 0.2082 threshold: 0.6500
+2026-07-11 23:19:21.011 | INFO     | app.middleware.logging:dispatch:23 - [d0d2c769] → POST /identify
+2026-07-11 23:19:21.012 | INFO     | app.middleware.logging:dispatch:33 - [58c65892] ← 200 /identify (2752.9ms)
+2026-07-11 23:19:21.012 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40490 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:21.013 | INFO     | app.middleware.logging:dispatch:33 - [1e0965fe] ← 200 /identify (2753.6ms)
+2026-07-11 23:19:21.013 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40494 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:21.811 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: efcfa9dd-ac10-4a7d-b29c-1a6b69926945 similarity: 0.1745 threshold: 0.6500
+2026-07-11 23:19:21.812 | INFO     | app.middleware.logging:dispatch:23 - [41dc3e29] → GET /health
+2026-07-11 23:19:21.812 | INFO     | app.middleware.logging:dispatch:23 - [a96c442c] → POST /identify
+2026-07-11 23:19:21.812 | INFO     | app.middleware.logging:dispatch:33 - [d0d2c769] ← 200 /identify (801.3ms)
+2026-07-11 23:19:21.813 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40522 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:22.609 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: bc277994-ed2e-476d-9724-29b3048d1a9b similarity: 0.1904 threshold: 0.6500
+2026-07-11 23:19:22.609 | INFO     | app.middleware.logging:dispatch:33 - [a96c442c] ← 200 /identify (797.2ms)
+2026-07-11 23:19:22.610 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51644 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:22.611 | INFO     | app.middleware.logging:dispatch:33 - [41dc3e29] ← 200 /health (798.9ms)
+2026-07-11 23:19:22.611 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51638 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:23.234 | INFO     | app.middleware.logging:dispatch:23 - [816cc980] → GET /health
+2026-07-11 23:19:23.236 | INFO     | app.middleware.logging:dispatch:33 - [816cc980] ← 200 /health (1.9ms)
+2026-07-11 23:19:23.237 | INFO     | logging:callHandlers:1737 - 127.0.0.1:40494 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:23.329 | INFO     | app.middleware.logging:dispatch:23 - [fbc17917] → GET /health
+2026-07-11 23:19:23.331 | INFO     | app.middleware.logging:dispatch:33 - [fbc17917] ← 200 /health (1.9ms)
+2026-07-11 23:19:23.331 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51656 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:24.632 | INFO     | app.middleware.logging:dispatch:23 - [0824f27e] → GET /health
+2026-07-11 23:19:24.632 | INFO     | app.middleware.logging:dispatch:23 - [39a6d77a] → GET /health
+2026-07-11 23:19:24.635 | INFO     | app.middleware.logging:dispatch:33 - [0824f27e] ← 200 /health (3.4ms)
+2026-07-11 23:19:24.636 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51644 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:24.637 | INFO     | app.middleware.logging:dispatch:33 - [39a6d77a] ← 200 /health (4.2ms)
+2026-07-11 23:19:24.637 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51638 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:24.786 | INFO     | app.middleware.logging:dispatch:23 - [e256227e] → POST /identify
+2026-07-11 23:19:25.540 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 8d01d464-77e1-44fc-bb14-55ac76cbdbc0 similarity: 0.6924 threshold: 0.6500
+2026-07-11 23:19:25.542 | INFO     | app.middleware.logging:dispatch:23 - [b6434871] → POST /identify
+2026-07-11 23:19:25.545 | INFO     | app.api.endpoints.identify:fetch_candidate_details:141 - Matched candidate ID: David_Anderson Name: David Anderson Similarity: 0.6924 Rank: 1 Latency: 756.1ms
+2026-07-11 23:19:25.546 | INFO     | app.middleware.logging:dispatch:33 - [e256227e] ← 200 /identify (759.1ms)
+2026-07-11 23:19:25.546 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51660 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:26.516 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 8ec3e75c-4e8a-4219-92e4-fe1bb6db3d8d similarity: 0.2526 threshold: 0.6500
+2026-07-11 23:19:26.517 | INFO     | app.middleware.logging:dispatch:23 - [830b5012] → GET /health
+2026-07-11 23:19:26.518 | INFO     | app.middleware.logging:dispatch:33 - [b6434871] ← 200 /identify (976.1ms)
+2026-07-11 23:19:26.518 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51674 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:26.520 | INFO     | app.middleware.logging:dispatch:33 - [830b5012] ← 200 /health (3.3ms)
+2026-07-11 23:19:26.520 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51644 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:27.422 | INFO     | app.middleware.logging:dispatch:23 - [c95b2fe1] → POST /identify
+2026-07-11 23:19:28.242 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 98cd5da6-d8de-4a63-ab90-22a036fc7103 similarity: 0.2218 threshold: 0.6500
+2026-07-11 23:19:28.242 | INFO     | app.middleware.logging:dispatch:23 - [274cc2eb] → POST /identify
+2026-07-11 23:19:28.243 | INFO     | app.middleware.logging:dispatch:33 - [c95b2fe1] ← 200 /identify (821.1ms)
+2026-07-11 23:19:28.243 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51676 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:29.093 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 3ec6c485-8817-4cf9-b6a5-fa0e8fff3d7b similarity: 0.1359 threshold: 0.6500
+2026-07-11 23:19:29.093 | INFO     | app.middleware.logging:dispatch:33 - [274cc2eb] ← 200 /identify (851.0ms)
+2026-07-11 23:19:29.094 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51686 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:29.105 | INFO     | app.middleware.logging:dispatch:23 - [790150ff] → POST /identify
+2026-07-11 23:19:29.950 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 6ddfe9a6-94b7-4f1f-90ef-6007badce0df similarity: 0.2131 threshold: 0.6500
+2026-07-11 23:19:29.951 | INFO     | app.middleware.logging:dispatch:23 - [f435e581] → GET /health
+2026-07-11 23:19:29.951 | INFO     | app.middleware.logging:dispatch:23 - [5efb4529] → GET /health
+2026-07-11 23:19:29.952 | INFO     | app.middleware.logging:dispatch:23 - [067e813d] → GET /health
+2026-07-11 23:19:29.952 | INFO     | app.middleware.logging:dispatch:23 - [0abd6e44] → GET /health
+2026-07-11 23:19:29.953 | INFO     | app.middleware.logging:dispatch:33 - [790150ff] ← 200 /identify (847.7ms)
+2026-07-11 23:19:29.953 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51644 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:29.957 | INFO     | app.middleware.logging:dispatch:33 - [067e813d] ← 200 /health (5.8ms)
+2026-07-11 23:19:29.958 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51638 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:29.958 | INFO     | app.middleware.logging:dispatch:33 - [f435e581] ← 200 /health (6.8ms)
+2026-07-11 23:19:29.958 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51674 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:29.995 | INFO     | app.middleware.logging:dispatch:33 - [5efb4529] ← 200 /health (43.7ms)
+2026-07-11 23:19:29.996 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51660 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:29.997 | INFO     | app.middleware.logging:dispatch:33 - [0abd6e44] ← 200 /health (44.9ms)
+2026-07-11 23:19:29.997 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51056 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:30.865 | INFO     | app.middleware.logging:dispatch:23 - [d0d89142] → GET /health
+2026-07-11 23:19:30.867 | INFO     | app.middleware.logging:dispatch:33 - [d0d89142] ← 200 /health (2.1ms)
+2026-07-11 23:19:30.868 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51070 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:31.470 | INFO     | app.middleware.logging:dispatch:23 - [373cf7ba] → GET /health
+2026-07-11 23:19:31.471 | INFO     | app.middleware.logging:dispatch:33 - [373cf7ba] ← 200 /health (1.6ms)
+2026-07-11 23:19:31.472 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51686 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:31.859 | INFO     | app.middleware.logging:dispatch:23 - [c4eec6ab] → GET /health
+2026-07-11 23:19:31.862 | INFO     | app.middleware.logging:dispatch:33 - [c4eec6ab] ← 200 /health (2.9ms)
+2026-07-11 23:19:31.862 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51074 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:32.055 | INFO     | app.middleware.logging:dispatch:23 - [d1bc977e] → GET /health
+2026-07-11 23:19:32.060 | INFO     | app.middleware.logging:dispatch:33 - [d1bc977e] ← 200 /health (5.4ms)
+2026-07-11 23:19:32.061 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51084 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:32.148 | INFO     | app.middleware.logging:dispatch:23 - [cafe7b8b] → POST /identify
+2026-07-11 23:19:32.229 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Pose angle exceeds limits: yaw=37.1°, pitch=33.6°, roll=-5.9° (max allowed 35.0°). Please look directly at the camera.
+2026-07-11 23:19:32.230 | INFO     | app.middleware.logging:dispatch:33 - [cafe7b8b] ← 422 /identify (81.9ms)
+2026-07-11 23:19:32.230 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51674 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:32.246 | INFO     | app.middleware.logging:dispatch:23 - [42482971] → POST /identify
+2026-07-11 23:19:32.502 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 678afa60-e85c-4e63-91a4-6ed86c0a7628 similarity: 0.1606 threshold: 0.6500
+2026-07-11 23:19:32.502 | INFO     | app.middleware.logging:dispatch:23 - [2c1a6ad1] → GET /health
+2026-07-11 23:19:32.503 | INFO     | app.middleware.logging:dispatch:33 - [42482971] ← 200 /identify (257.0ms)
+2026-07-11 23:19:32.503 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51644 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:32.505 | INFO     | app.middleware.logging:dispatch:33 - [2c1a6ad1] ← 200 /health (3.1ms)
+2026-07-11 23:19:32.506 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51638 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:32.696 | INFO     | app.middleware.logging:dispatch:23 - [7f826b2b] → POST /identify
+2026-07-11 23:19:32.820 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Pose angle exceeds limits: yaw=-46.1°, pitch=8.7°, roll=-7.7° (max allowed 35.0°). Please look directly at the camera.
+2026-07-11 23:19:32.821 | INFO     | app.middleware.logging:dispatch:33 - [7f826b2b] ← 422 /identify (125.0ms)
+2026-07-11 23:19:32.821 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51070 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:32.833 | INFO     | app.middleware.logging:dispatch:23 - [f9bab01d] → POST /identify
+2026-07-11 23:19:33.155 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 5d8c27d2-f9e1-4fe4-b2f6-0c9c1ff3c3d5 similarity: 0.1352 threshold: 0.6500
+2026-07-11 23:19:33.155 | INFO     | app.middleware.logging:dispatch:33 - [f9bab01d] ← 200 /identify (322.3ms)
+2026-07-11 23:19:33.155 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51056 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:33.987 | INFO     | app.middleware.logging:dispatch:23 - [e3e340d6] → GET /health
+2026-07-11 23:19:33.990 | INFO     | app.middleware.logging:dispatch:33 - [e3e340d6] ← 200 /health (2.4ms)
+2026-07-11 23:19:33.990 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51638 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:34.221 | INFO     | app.middleware.logging:dispatch:23 - [764821dd] → GET /health
+2026-07-11 23:19:34.223 | INFO     | app.middleware.logging:dispatch:33 - [764821dd] ← 200 /health (1.7ms)
+2026-07-11 23:19:34.223 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51092 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:34.430 | INFO     | app.middleware.logging:dispatch:23 - [35b7eb1d] → POST /identify
+2026-07-11 23:19:34.434 | INFO     | app.middleware.logging:dispatch:23 - [01ff3de3] → POST /identify
+2026-07-11 23:19:34.682 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 0a004e5d-0519-4ed9-bcac-e34162b70717 similarity: 0.1642 threshold: 0.6500
+2026-07-11 23:19:34.682 | INFO     | app.middleware.logging:dispatch:33 - [01ff3de3] ← 200 /identify (248.3ms)
+2026-07-11 23:19:34.683 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51674 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:34.799 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Image too blurry (Laplacian variance=42.8, min=50.0).
+2026-07-11 23:19:34.799 | INFO     | app.middleware.logging:dispatch:33 - [35b7eb1d] ← 422 /identify (368.8ms)
+2026-07-11 23:19:34.799 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51056 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:35.306 | INFO     | app.middleware.logging:dispatch:23 - [45a0934b] → POST /identify
+2026-07-11 23:19:35.582 | INFO     | app.middleware.logging:dispatch:23 - [f66b4075] → POST /identify
+2026-07-11 23:19:35.583 | INFO     | app.middleware.logging:dispatch:23 - [68f02b27] → POST /identify
+2026-07-11 23:19:35.583 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:35.584 | INFO     | app.middleware.logging:dispatch:33 - [45a0934b] ← 422 /identify (277.4ms)
+2026-07-11 23:19:35.584 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51070 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:36.497 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: fd86d0a5-6b94-45c8-842f-dfcbce4d88e2 similarity: 0.1808 threshold: 0.6500
+2026-07-11 23:19:37.321 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 877d707e-3b58-4005-a8db-12cea2e4816b similarity: 0.2016 threshold: 0.6500
+2026-07-11 23:19:37.322 | INFO     | app.middleware.logging:dispatch:23 - [a58ed11a] → POST /identify
+2026-07-11 23:19:37.322 | INFO     | app.middleware.logging:dispatch:23 - [e228b2c2] → GET /health
+2026-07-11 23:19:37.322 | INFO     | app.middleware.logging:dispatch:23 - [daba6bc0] → POST /identify
+2026-07-11 23:19:37.324 | INFO     | app.middleware.logging:dispatch:33 - [f66b4075] ← 200 /identify (1741.4ms)
+2026-07-11 23:19:37.324 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51638 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:37.324 | INFO     | app.middleware.logging:dispatch:33 - [68f02b27] ← 200 /identify (1741.1ms)
+2026-07-11 23:19:37.324 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51102 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:38.146 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: fe811d38-a77b-4967-b46c-e9d6fed09048 similarity: 0.1881 threshold: 0.6500
+2026-07-11 23:19:38.652 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 5957b0e0-ffd1-4206-bf42-8e851d316066 similarity: 0.1342 threshold: 0.6500
+2026-07-11 23:19:38.653 | INFO     | app.middleware.logging:dispatch:23 - [ed290008] → GET /health
+2026-07-11 23:19:38.653 | INFO     | app.middleware.logging:dispatch:23 - [a7a7633f] → POST /identify
+2026-07-11 23:19:38.654 | INFO     | app.middleware.logging:dispatch:23 - [f38fd3cb] → POST /identify
+2026-07-11 23:19:38.655 | INFO     | app.middleware.logging:dispatch:33 - [a58ed11a] ← 200 /identify (1332.8ms)
+2026-07-11 23:19:38.655 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51644 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:38.656 | INFO     | app.middleware.logging:dispatch:33 - [daba6bc0] ← 200 /identify (1333.5ms)
+2026-07-11 23:19:38.656 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51074 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:38.657 | INFO     | app.middleware.logging:dispatch:33 - [e228b2c2] ← 200 /health (1335.1ms)
+2026-07-11 23:19:38.657 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51674 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:39.050 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 77182377-22a2-47fd-a065-9be1f5abdff1 similarity: 0.1852 threshold: 0.6500
+2026-07-11 23:19:39.050 | INFO     | app.middleware.logging:dispatch:23 - [e5a22a36] → POST /identify
+2026-07-11 23:19:39.176 | INFO     | app.middleware.logging:dispatch:33 - [a7a7633f] ← 200 /identify (522.8ms)
+2026-07-11 23:19:39.177 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51104 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:39.178 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:39.180 | INFO     | app.middleware.logging:dispatch:33 - [f38fd3cb] ← 422 /identify (525.5ms)
+2026-07-11 23:19:39.180 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51110 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:39.180 | INFO     | app.middleware.logging:dispatch:33 - [ed290008] ← 200 /health (527.5ms)
+2026-07-11 23:19:39.180 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51070 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:39.486 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 5e8b719b-2d7f-493a-a54b-063515278399 similarity: 0.1950 threshold: 0.6500
+2026-07-11 23:19:39.487 | INFO     | app.middleware.logging:dispatch:33 - [e5a22a36] ← 200 /identify (436.3ms)
+2026-07-11 23:19:39.487 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51092 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:40.119 | INFO     | app.middleware.logging:dispatch:23 - [9780b50e] → POST /identify
+2026-07-11 23:19:40.676 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 906ce212-410d-4ae5-87b2-c80333e7345c similarity: 0.2133 threshold: 0.6500
+2026-07-11 23:19:40.676 | INFO     | app.middleware.logging:dispatch:33 - [9780b50e] ← 200 /identify (557.1ms)
+2026-07-11 23:19:40.677 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51102 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:40.908 | INFO     | app.middleware.logging:dispatch:23 - [fdf85113] → POST /identify
+2026-07-11 23:19:41.288 | INFO     | app.middleware.logging:dispatch:23 - [fcd5c64e] → POST /identify
+2026-07-11 23:19:41.289 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:41.290 | INFO     | app.middleware.logging:dispatch:33 - [fdf85113] ← 422 /identify (382.4ms)
+2026-07-11 23:19:41.290 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51092 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:42.210 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 2806fc3b-c06d-4964-9e15-ba86d50c8453 similarity: 0.1581 threshold: 0.6500
+2026-07-11 23:19:42.211 | INFO     | app.middleware.logging:dispatch:23 - [81c6eb52] → GET /health
+2026-07-11 23:19:42.211 | INFO     | app.middleware.logging:dispatch:23 - [7611dca8] → GET /health
+2026-07-11 23:19:42.211 | INFO     | app.middleware.logging:dispatch:23 - [264ca4f6] → GET /health
+2026-07-11 23:19:42.212 | INFO     | app.middleware.logging:dispatch:33 - [fcd5c64e] ← 200 /identify (924.2ms)
+2026-07-11 23:19:42.212 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51674 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:42.215 | INFO     | app.middleware.logging:dispatch:33 - [81c6eb52] ← 200 /health (3.9ms)
+2026-07-11 23:19:42.215 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51110 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:42.217 | INFO     | app.middleware.logging:dispatch:33 - [7611dca8] ← 200 /health (6.1ms)
+2026-07-11 23:19:42.217 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51638 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:42.222 | INFO     | app.middleware.logging:dispatch:33 - [264ca4f6] ← 200 /health (10.6ms)
+2026-07-11 23:19:42.222 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51074 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:42.452 | INFO     | app.middleware.logging:dispatch:23 - [ea54e6de] → POST /identify
+2026-07-11 23:19:43.017 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:43.017 | INFO     | app.middleware.logging:dispatch:33 - [ea54e6de] ← 422 /identify (565.0ms)
+2026-07-11 23:19:43.018 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51092 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:43.320 | INFO     | app.middleware.logging:dispatch:23 - [f80e8e6c] → GET /health
+2026-07-11 23:19:43.323 | INFO     | app.middleware.logging:dispatch:33 - [f80e8e6c] ← 200 /health (2.5ms)
+2026-07-11 23:19:43.323 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51644 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:43.326 | INFO     | app.middleware.logging:dispatch:23 - [fbccf0ab] → GET /health
+2026-07-11 23:19:43.328 | INFO     | app.middleware.logging:dispatch:33 - [fbccf0ab] ← 200 /health (1.7ms)
+2026-07-11 23:19:43.328 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51224 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:43.610 | INFO     | app.middleware.logging:dispatch:23 - [8e2a86db] → GET /health
+2026-07-11 23:19:43.612 | INFO     | app.middleware.logging:dispatch:33 - [8e2a86db] ← 200 /health (1.8ms)
+2026-07-11 23:19:43.612 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51070 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:44.457 | INFO     | app.middleware.logging:dispatch:23 - [023ac144] → GET /health
+2026-07-11 23:19:44.459 | INFO     | app.middleware.logging:dispatch:33 - [023ac144] ← 200 /health (1.9ms)
+2026-07-11 23:19:44.460 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51102 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:44.695 | INFO     | app.middleware.logging:dispatch:23 - [2375ce07] → POST /identify
+2026-07-11 23:19:45.411 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 1f8727e7-9781-4a5d-bc12-305ab8330905 similarity: 0.1838 threshold: 0.6500
+2026-07-11 23:19:45.411 | INFO     | app.middleware.logging:dispatch:23 - [e50578f8] → POST /identify
+2026-07-11 23:19:45.412 | INFO     | app.middleware.logging:dispatch:23 - [bb7a1844] → POST /identify
+2026-07-11 23:19:45.412 | INFO     | app.middleware.logging:dispatch:33 - [2375ce07] ← 200 /identify (717.9ms)
+2026-07-11 23:19:45.413 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51092 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:45.800 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:45.801 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:45.801 | INFO     | app.middleware.logging:dispatch:33 - [e50578f8] ← 422 /identify (389.7ms)
+2026-07-11 23:19:45.801 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51074 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:45.801 | INFO     | app.middleware.logging:dispatch:33 - [bb7a1844] ← 422 /identify (389.8ms)
+2026-07-11 23:19:45.802 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51110 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:45.814 | INFO     | app.middleware.logging:dispatch:23 - [f8ab4a41] → GET /health
+2026-07-11 23:19:45.816 | INFO     | app.middleware.logging:dispatch:33 - [f8ab4a41] ← 200 /health (2.1ms)
+2026-07-11 23:19:45.816 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51070 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:46.299 | INFO     | app.middleware.logging:dispatch:23 - [aec6385f] → GET /health
+2026-07-11 23:19:46.300 | INFO     | app.middleware.logging:dispatch:33 - [aec6385f] ← 200 /health (1.6ms)
+2026-07-11 23:19:46.301 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51232 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:46.478 | INFO     | app.middleware.logging:dispatch:23 - [236f7009] → POST /identify
+2026-07-11 23:19:46.544 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:46.545 | INFO     | app.middleware.logging:dispatch:33 - [236f7009] ← 422 /identify (66.5ms)
+2026-07-11 23:19:46.545 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51674 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:47.134 | INFO     | app.middleware.logging:dispatch:23 - [abeb6abe] → POST /identify
+2026-07-11 23:19:47.430 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: 59d8b76f-6e12-4376-9ff4-007afbda1bd8 similarity: 0.1507 threshold: 0.6500
+2026-07-11 23:19:47.431 | INFO     | app.middleware.logging:dispatch:33 - [abeb6abe] ← 200 /identify (297.0ms)
+2026-07-11 23:19:47.431 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51638 - "POST /identify HTTP/1.1" 200
+2026-07-11 23:19:47.525 | INFO     | app.middleware.logging:dispatch:23 - [cb520d5a] → GET /health
+2026-07-11 23:19:47.526 | INFO     | app.middleware.logging:dispatch:33 - [cb520d5a] ← 200 /health (1.8ms)
+2026-07-11 23:19:47.527 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51092 - "GET /health HTTP/1.1" 200
+2026-07-11 23:19:47.614 | INFO     | app.middleware.logging:dispatch:23 - [d1fd5d23] → POST /identify
+2026-07-11 23:19:47.734 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:47.734 | INFO     | app.middleware.logging:dispatch:33 - [d1fd5d23] ← 422 /identify (119.8ms)
+2026-07-11 23:19:47.735 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51110 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:48.005 | INFO     | app.middleware.logging:dispatch:23 - [aa131619] → POST /identify
+2026-07-11 23:19:48.244 | INFO     | app.middleware.logging:dispatch:23 - [39d747b0] → POST /identify
+2026-07-11 23:19:48.244 | WARNING  | app.main:app_error_handler:64 - AppError quality_check_failed: Multiple faces detected (2). Only single candidates allowed.
+2026-07-11 23:19:48.245 | INFO     | app.middleware.logging:dispatch:33 - [aa131619] ← 422 /identify (239.4ms)
+2026-07-11 23:19:48.245 | INFO     | logging:callHandlers:1737 - 127.0.0.1:51674 - "POST /identify HTTP/1.1" 422
+2026-07-11 23:19:48.924 | INFO     | app.api.endpoints.identify:process_identification:61 - Top FAISS candidate UUID: ac1285b2-673c-44d2-8f9d-75a79fcf0e4f similarity: 0.1891 threshold: 0.6500
+2026-07-11 23:19:48.925 | INFO     | app.middleware.logging:dispatch:23 - [255f7af0] → POST /identify
+2026-07-11 23:19:48.926 | INFO     | app.middleware.logging:dispatch:33 - [39d747b0] ← 200 /identify (682.2ms)
+2026-07-11 23:19:48.926 | INFO     | app.middleware.logging:dispatch:33 - [255f7af0] ← 400 /identify (1.7ms)
