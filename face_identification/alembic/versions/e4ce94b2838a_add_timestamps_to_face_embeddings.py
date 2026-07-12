@@ -1,0 +1,53 @@
+"""add_timestamps_to_face_embeddings
+
+Revision ID: e4ce94b2838a
+Revises: 0001_initial
+Create Date: 2026-07-07 17:00:12.006323
+"""
+from typing import Sequence, Union
+
+import sqlalchemy as sa
+from alembic import op
+from sqlalchemy.dialects import postgresql
+
+revision: str = 'e4ce94b2838a'
+down_revision: Union[str, None] = '0001_initial'
+branch_labels: Union[str, Sequence[str], None] = None
+depends_on: Union[str, Sequence[str], None] = None
+
+
+def upgrade() -> None:
+    op.alter_column('candidates', 'candidate_id',
+               existing_type=sa.VARCHAR(length=64),
+               comment='Human-readable unique identifier (e.g. employee ID)',
+               existing_nullable=False)
+    op.add_column('face_embeddings', sa.Column('created_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False))
+    op.add_column('face_embeddings', sa.Column('updated_at', sa.DateTime(timezone=True), server_default=sa.text('now()'), nullable=False))
+    op.alter_column('face_embeddings', 'embedding',
+               existing_type=postgresql.ARRAY(sa.DOUBLE_PRECISION(precision=53)),
+               comment='512-dimensional L2-normalised ArcFace embedding',
+               existing_nullable=False)
+    op.alter_column('face_embeddings', 'normalized',
+               existing_type=sa.BOOLEAN(),
+               comment='Always True — embeddings are L2-normalised before storage',
+               existing_nullable=False)
+
+
+def downgrade() -> None:
+    op.alter_column('face_embeddings', 'normalized',
+               existing_type=sa.BOOLEAN(),
+               comment=None,
+               existing_comment='Always True — embeddings are L2-normalised before storage',
+               existing_nullable=False)
+    op.alter_column('face_embeddings', 'embedding',
+               existing_type=postgresql.ARRAY(sa.DOUBLE_PRECISION(precision=53)),
+               comment=None,
+               existing_comment='512-dimensional L2-normalised ArcFace embedding',
+               existing_nullable=False)
+    op.drop_column('face_embeddings', 'updated_at')
+    op.drop_column('face_embeddings', 'created_at')
+    op.alter_column('candidates', 'candidate_id',
+               existing_type=sa.VARCHAR(length=64),
+               comment=None,
+               existing_comment='Human-readable unique identifier (e.g. employee ID)',
+               existing_nullable=False)
