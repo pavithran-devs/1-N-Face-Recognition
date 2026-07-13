@@ -1,0 +1,83 @@
+# =============================================================================
+# Root .gitignore for 1:N Face Recognition Project
+# =============================================================================
+
+# Python compile/cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files / Secrets (CRITICAL for production)
+.env
+.env.*
+!.env.example
+
+# FAISS Index / binary files
+*.bin
+*.bin.meta
+faiss_index.bin
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Testing & Coverage
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+coverage.xml
+*.cover
+.dmypy.json
+dmypy.json
+
+# IDE / Editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Model Weights
+*.onnx
+*.onnx.meta
+models/
+
+# Test data / image directories / local outputs
+**/same_person/
+**/one_vs_every/
+**/exports/
+*results.csv

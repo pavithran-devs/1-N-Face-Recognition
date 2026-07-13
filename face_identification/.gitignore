@@ -100,3 +100,13 @@ Thumbs.db
 *.onnx
 *.onnx.meta
 models/
+
+# =============================================================================
+# Test images, results, and local verification scripts
+# =============================================================================
+same_person/
+one_vs_every/
+*_results.csv
+scripts/check_*.py
+scripts/test_*.py
+
