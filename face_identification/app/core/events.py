@@ -29,18 +29,23 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     # 2. Initialize FAISS index
     faiss_manager = FAISSManager()
 
-    # Rebuild from database on startup if index is not present on disk
-    if not faiss_manager.get_status()["active"] or faiss_manager.size == 0:
-        logger.info(
-            "FAISS index not found on disk or empty. Attempting auto-rebuild from PostgreSQL on startup..."
-        )
+    # Rebuild and sync from database on startup unconditionally (skipped in testing)
+    import os
+    import sys
+
+    is_testing = os.getenv("TESTING", "").lower() == "true" or "pytest" in sys.modules
+
+    if is_testing:
+        logger.info("Skipping FAISS index startup rebuild (testing mode active).")
+    else:
+        logger.info("Syncing FAISS index with PostgreSQL database on startup...")
         async with AsyncSessionLocal() as session:
             try:
                 success, size = await faiss_manager.rebuild(session)
                 if success:
-                    logger.info("FAISS index auto-rebuilt from database on startup. Size: {}", size)
+                    logger.info("FAISS index auto-rebuilt and synced from database on startup. Size: {}", size)
                 else:
-                    logger.warning("Auto-rebuilt failed or database has no records.")
+                    logger.warning("Auto-rebuild failed or database has no records.")
             except Exception as exc:
                 logger.error("Exception during startup FAISS rebuild: {}", exc)
 

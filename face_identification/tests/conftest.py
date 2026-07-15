@@ -4,6 +4,9 @@ Uses aiosqlite + SQLAlchemy for an in-memory DB so tests do not require PostgreS
 FaceRecognitionPipeline is mocked to avoid loading InsightFace weights during tests.
 """
 
+import os
+os.environ["TESTING"] = "True"
+
 import asyncio
 import json
 from collections.abc import AsyncGenerator
