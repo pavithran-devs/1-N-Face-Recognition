@@ -1,8 +1,8 @@
 """Streamlit application landing page showing health, index details, and latency metrics."""
 
 import streamlit as st
-from api_client import FaceIdentifyAPIClient
 import ui
+from api_client import FaceIdentifyAPIClient
 
 base_url = ui.configure_page("Face identification dashboard", ":material/verified_user:")
 
@@ -49,7 +49,11 @@ st.subheader(":material/bolt: Performance telemetry")
 if metrics:
     m_col1, m_col2, m_col3, m_col4 = st.columns(4)
 
-    m_col1.metric(label="Total identification runs", value=f"{metrics.get('total_searches', 0):,}", border=True)
+    m_col1.metric(
+        label="Total identification runs",
+        value=f"{metrics.get('total_searches', 0):,}",
+        border=True,
+    )
     m_col2.metric(label="Successful matches", value=f"{metrics.get('hits', 0):,}", border=True)
     m_col3.metric(label="Unknown rejections", value=f"{metrics.get('misses', 0):,}", border=True)
 

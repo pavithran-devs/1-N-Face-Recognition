@@ -150,6 +150,9 @@ def enroll_capture(
         return {}, str(e)
 
 
+
+
+
 # ── Embeddings ────────────────────────────────────────────────────────────────
 
 def get_embeddings(base: str, candidate_uuid: str) -> tuple[list, str | None]:

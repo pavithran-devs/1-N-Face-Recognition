@@ -1,8 +1,8 @@
 """Streamlit page to handle bulk dataset imports and FAISS index maintenance."""
 
 import streamlit as st
-from api_client import FaceIdentifyAPIClient
 import ui
+from api_client import FaceIdentifyAPIClient
 
 base_url = ui.configure_page("Manage database and index", ":material/database:")
 
@@ -69,9 +69,7 @@ with col2:
     st.markdown("Synchronise the in-memory FAISS index with candidates in the PostgreSQL database.")
 
     # Database Sync button
-    if st.button(
-        "Sync index with Postgres", icon=":material/sync:", width="stretch"
-    ):
+    if st.button("Sync index with Postgres", icon=":material/sync:", width="stretch"):
         with st.spinner("Rebuilding FAISS index from Postgres database candidates..."):
             resp = client.import_postgres_sync()
 

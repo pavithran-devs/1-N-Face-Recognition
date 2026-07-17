@@ -1,6 +1,7 @@
 """EnrollmentService — orchestrates full candidate + embedding enrollment."""
 from dataclasses import dataclass
 
+import numpy as np
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.exceptions import ConflictError, ImageValidationError, QualityCheckError
@@ -108,3 +109,5 @@ class EnrollmentService:
                 f"Invalid base64 image data: {exc}"
             ) from exc
         return await self.enroll_from_bytes(image_bytes, candidate_data)
+
+

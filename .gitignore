@@ -81,3 +81,16 @@ models/
 **/one_vs_every/
 **/exports/
 *results.csv
+
+# Large datasets, zip files, and pdf reports
+*.csv
+*.zip
+*.pdf
+*report.md
+*_report.md
+**/testing/
+
+# Archive folders
+archive/
+**/archive/
+

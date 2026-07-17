@@ -43,7 +43,10 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
             try:
                 success, size = await faiss_manager.rebuild(session)
                 if success:
-                    logger.info("FAISS index auto-rebuilt and synced from database on startup. Size: {}", size)
+                    logger.info(
+                        "FAISS index auto-rebuilt and synced from database on startup. Size: {}",
+                        size,
+                    )
                 else:
                     logger.warning("Auto-rebuild failed or database has no records.")
             except Exception as exc:

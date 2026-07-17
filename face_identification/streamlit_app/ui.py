@@ -32,4 +32,3 @@ def render_sidebar() -> str:
             "pages/2_Import_Index.py", label="Import and index", icon=":material/database:"
         )
     return base_url
-

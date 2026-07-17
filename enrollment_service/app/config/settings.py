@@ -65,6 +65,9 @@ class Settings(BaseSettings):
     # ── Embedding ─────────────────────────────────────────────────────────────
     embedding_dimension: int = Field(default=512)
 
+    # ── Cross-Service Communication ───────────────────────────────────────────
+    identification_service_url: str = Field(default="http://localhost:8001")
+
 
 @lru_cache
 def get_settings() -> Settings:

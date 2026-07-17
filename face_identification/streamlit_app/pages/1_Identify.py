@@ -1,8 +1,8 @@
 """Streamlit page for real-time 1:N face identification (webcam and upload)."""
 
 import streamlit as st
-from api_client import FaceIdentifyAPIClient
 import ui
+from api_client import FaceIdentifyAPIClient
 
 base_url = ui.configure_page("Identify candidate", ":material/person_search:")
 
@@ -38,7 +38,9 @@ def handle_identification(image_bytes: bytes, filename: str) -> None:
         return
 
     if "error" in resp:
-        st.error(f"Error: {resp['error'].get('message', 'Failed to identify.')}", icon=":material/error:")
+        st.error(
+            f"Error: {resp['error'].get('message', 'Failed to identify.')}", icon=":material/error:"
+        )
         return
 
     # Success Response
@@ -63,7 +65,9 @@ def handle_identification(image_bytes: bytes, filename: str) -> None:
                 f"**Similarity Rank:** `{resp.get('rank')}`"
             )
     else:
-        st.warning("Unknown candidate. No match met the similarity threshold.", icon=":material/warning:")
+        st.warning(
+            "Unknown candidate. No match met the similarity threshold.", icon=":material/warning:"
+        )
 
 
 with tab_cam:

@@ -5,6 +5,7 @@ FaceRecognitionPipeline is mocked to avoid loading InsightFace weights during te
 """
 
 import os
+
 os.environ["TESTING"] = "True"
 
 import asyncio
